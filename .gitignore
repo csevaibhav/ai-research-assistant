@@ -1,0 +1,44 @@
+# Virtual Environment
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Environment Variables
+.env
+
+# VS Code
+.vscode/
+
+# JetBrains
+.idea/
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# Coverage
+.coverage
+htmlcov/
+
+# pytest
+.pytest_cache/
+
+# mypy
+.mypy_cache/
+
+# Ruff
+.ruff_cache/
+
+# Build
+dist/
+build/
+*.egg-info/
+
+# Local database
+*.db
