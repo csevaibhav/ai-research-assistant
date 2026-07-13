@@ -1,24 +1,27 @@
-from app.core.config import settings
 from app.core.logger import logger
-from app.llm.gemini_client import client
+from app.llm.provider_factory import ProviderFactory
 
 
 class ChatService:
 
-    def ask(self, question: str) -> str:
+    def __init__(self):
 
-        logger.info("Question received: %s", question)
+        self.provider = ProviderFactory.get_provider()
 
-        logger.info("Using Gemini model: %s", settings.GEMINI_MODEL)
+    def ask(self, question: str):
 
-        response = client.models.generate_content(
-            model=settings.GEMINI_MODEL,
-            contents=question,
+        logger.info(
+            "Question received: %s",
+            question
         )
 
-        logger.info("Response generated successfully")
+        answer = self.provider.generate(question)
 
-        return response.text
+        logger.info(
+            "Response generated successfully"
+        )
+
+        return answer
 
 
 chat_service = ChatService()
