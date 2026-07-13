@@ -1,12 +1,12 @@
 from app.core.logger import logger
-from app.llm.provider_factory import ProviderFactory
+from app.llm.llm_manager import LLMManager
 
 
 class ChatService:
 
     def __init__(self):
 
-        self.provider = ProviderFactory.get_provider()
+        self.llm = LLMManager()
 
     def ask(self, question: str):
 
@@ -15,7 +15,7 @@ class ChatService:
             question
         )
 
-        answer = self.provider.generate(question)
+        answer = self.llm.generate(question)
 
         logger.info(
             "Response generated successfully"
