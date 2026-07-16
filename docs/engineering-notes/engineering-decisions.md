@@ -599,3 +599,30 @@ Throughout this project, the following principles guide architectural decisions:
 This project is intentionally being built as if it were a real production system rather than a tutorial.
 
 Every architectural decision prioritizes long-term maintainability, scalability, and engineering quality over the shortest implementation path.
+
+---
+
+# Why FakeProvider Instead of Calling Gemini During Tests?
+
+## Decision
+
+We introduced a FakeProvider implementing the BaseLLMProvider interface.
+
+## Why?
+
+- Eliminates dependency on internet connectivity.
+- Prevents API quota exhaustion.
+- Makes unit tests deterministic.
+- Speeds up development.
+
+## Alternatives
+
+Use the real Gemini API.
+
+## Trade-off
+
+Provider communication is validated only during integration testing, not unit testing.
+
+## Result
+
+Developers can run the entire test suite offline in seconds.

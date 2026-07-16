@@ -4,9 +4,9 @@ from app.llm.provider_factory import ProviderFactory
 
 class LLMManager:
 
-    def __init__(self):
+    def __init__(self, provider):
 
-        self.provider = ProviderFactory.get_provider()
+        self.provider = provider
 
         logger.info(
             "Loaded provider: %s",

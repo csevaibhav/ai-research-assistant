@@ -1,56 +1,99 @@
 # 🤖 AI Research Assistant
 
-> Production-ready Agentic AI backend built using **FastAPI**, **Google Gemini**, and modern AI engineering principles.
+> A production-oriented Agentic AI backend built with FastAPI, Provider Pattern, Dependency Injection, and modern software engineering practices.
+
+![Python](https://img.shields.io/badge/Python-3.14-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.116-green)
+![Testing](https://img.shields.io/badge/pytest-Passing-success)
+![License](https://img.shields.io/badge/License-MIT-yellow)
 
 ---
 
-## 🚀 Project Vision
+## 📖 Overview
 
-This project is being built from scratch to demonstrate production-grade AI engineering practices rather than a simple chatbot implementation.
+AI Research Assistant is a backend platform for building intelligent AI agents.
 
-The long-term goal is to evolve it into a fully autonomous research assistant capable of:
+Unlike simple chatbot applications, this project focuses on **production-quality software architecture** and is designed to evolve into a complete Agentic AI system with:
 
-- Multi-step reasoning
+- Multi-provider LLM support
+- LangGraph workflows
 - Tool calling
-- Long-term memory
 - Retrieval-Augmented Generation (RAG)
-- Multi-agent collaboration
-- Provider-agnostic LLM support
+- Long-term memory
+- Production deployment
 
 ---
 
 ## 🏗️ Current Architecture
 
 ```text
-Client
-   │
-   ▼
-FastAPI
-   │
-Chat Service
-   │
-Gemini Provider
-   │
-Google Gemini API
+                FastAPI
+                   │
+             Dependency Injection
+                   │
+             ChatService
+                   │
+              LLMManager
+                   │
+          Provider Factory
+                   │
+            Gemini Provider
 ```
 
 ---
 
 ## ✨ Features
 
-- ✅ FastAPI REST API
-- ✅ Swagger Documentation
-- ✅ Google Gemini Integration
-- ✅ Centralized Configuration
-- ✅ Logging
-- ## Latest Update
-- ✅ Provider Factory Pattern
-- ✅ LLM Abstraction
-- ✅ Gemini Provider
-- 🔄 LangGraph (Planned)
-- 🔄 Tool Calling (Planned)
-- 🔄 Memory (Planned)
-- 🔄 RAG Pipeline (Planned)
+### ✅ Backend
+
+- FastAPI REST API
+- Swagger Documentation
+- Configuration Management
+- Structured Logging
+
+### ✅ AI Layer
+
+- Gemini Provider
+- Provider Factory Pattern
+- LLM Manager
+- Prompt Manager
+
+### ✅ Engineering
+
+- Dependency Injection
+- Clean Architecture
+- Service Layer
+- Unit Testing
+- Fake Provider
+- GitHub Documentation
+
+---
+
+## 📂 Project Structure
+
+```text
+AI-RESEARCH-ASSISTANT/
+
+app/
+│
+├── api/
+├── core/
+├── dependencies/
+├── llm/
+├── prompts/
+├── services/
+├── tools/
+├── memory/
+├── graph/
+└── utils/
+
+tests/
+│
+├── fakes/
+└── unit/
+
+docs/
+```
 
 ---
 
@@ -59,59 +102,120 @@ Google Gemini API
 | Category | Technology |
 |----------|------------|
 | Language | Python 3.14 |
-| API | FastAPI |
+| Framework | FastAPI |
 | LLM | Google Gemini |
 | Validation | Pydantic |
-| Configuration | Pydantic Settings |
-| AI Framework | LangGraph *(Upcoming)* |
-| Deployment | Docker *(Upcoming)* |
+| Testing | Pytest |
+| Logging | Python Logging |
+| API Docs | Swagger/OpenAPI |
 
 ---
 
-## 📂 Project Structure
+## 🧪 Running the Project
 
-```text
-app/
-├── api/
-├── core/
-├── graph/
-├── llm/
-├── memory/
-├── models/
-├── prompts/
-├── services/
-├── tools/
-└── utils/
+### Clone
+
+```bash
+git clone https://github.com/<csevaibhav>/ai-research-assistant.git
+
+cd ai-research-assistant
+```
+
+### Create Virtual Environment
+
+```bash
+python -m venv venv
+```
+
+Windows
+
+```bash
+venv\Scripts\activate
+```
+
+### Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Run Server
+
+```bash
+uvicorn app.main:app --reload
+```
+
+Open:
+
+```
+http://127.0.0.1:8000/docs
 ```
 
 ---
 
-## 🗺️ Roadmap
+## 🧪 Running Tests
 
-- [x] FastAPI Backend
-- [x] Gemini Integration
-- [x] Centralized Configuration
-- [ ] Provider Factory
-- [ ] Prompt Management
-- [ ] Tool Calling
-- [ ] LangGraph Workflow
-- [ ] Redis Memory
-- [ ] RAG Pipeline
-- [ ] Multi-Agent System
-- [ ] Docker
-- [ ] GitHub Actions
+Run all tests
+
+```bash
+python -m pytest -v
+```
+
+Run a specific test
+
+```bash
+python -m pytest tests/unit/test_chat_service.py -v
+```
 
 ---
 
-## 📖 Learning Journey
+## 🏛️ Software Engineering Concepts Used
 
-This project is being developed incrementally with a focus on:
+- Provider Pattern
+- Factory Pattern
+- Dependency Injection
+- Service Layer
+- SOLID Principles
+- Separation of Concerns
+- Unit Testing
+- Mocking
 
-- Software Engineering
-- AI Engineering
-- Clean Architecture
-- Design Patterns
-- Production Readiness
+---
+
+## 📚 Documentation
+
+The project includes engineering documentation for every sprint.
+
+```
+docs/
+
+engineering-decisions.md
+
+sprint-01.md
+
+sprint-02.md
+
+sprint-03.md
+
+sprint-04.md
+
+sprint-05.md
+```
+
+---
+
+## 🚀 Upcoming Features
+
+- Prompt Versioning
+- Tool Calling
+- LangGraph
+- RAG
+- ChromaDB
+- Redis Memory
+- Multi-Agent Workflow
+- Docker
+- CI/CD
+- Kubernetes Deployment
 
 ---
 
@@ -119,4 +223,26 @@ This project is being developed incrementally with a focus on:
 
 **Vaibhav Yadav**
 
-Backend Engineer → AI Engineer
+Backend Software Engineer transitioning into Agentic AI Engineering.
+
+---
+
+## ⭐ Project Status
+
+Current Version:
+
+```
+v0.5.0
+```
+
+Current Milestone:
+
+```
+Engineering Foundation Complete ✅
+```
+
+Next Milestone:
+
+```
+Prompt Engineering Framework
+```

@@ -1,27 +1,29 @@
 from app.core.logger import logger
 from app.llm.llm_manager import LLMManager
+from app.prompts.prompt_manager import PromptManager
 
 
 class ChatService:
+    """
+    Handles chat-related business logic.
 
-    def __init__(self):
+    This service is independent of any specific LLM provider.
+    It only depends on an LLMManager.
+    """
 
-        self.llm = LLMManager()
+    def __init__(self, llm: LLMManager):
+        self.llm = llm
 
-    def ask(self, question: str):
+    def ask(self, question: str) -> str:
 
-        logger.info(
-            "Question received: %s",
-            question
-        )
+        logger.info("Question received: %s", question)
 
-        answer = self.llm.generate(question)
+        prompt = PromptManager.build_research_prompt(question)
 
-        logger.info(
-            "Response generated successfully"
-        )
+        logger.info("Prompt created successfully.")
 
-        return answer
+        response = self.llm.generate(prompt)
 
+        logger.info("Response generated successfully.")
 
-chat_service = ChatService()
+        return response
