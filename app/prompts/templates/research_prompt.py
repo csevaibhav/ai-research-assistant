@@ -1,17 +1,20 @@
+from app.prompts.models.prompt_context import PromptContext
+
+
 class ResearchPrompt:
     """
-    Research prompt template.
+    Prompt template for research-oriented questions.
     """
 
     @staticmethod
-    def build(question: str) -> str:
+    def build(context: PromptContext) -> str:
 
         return f"""
-You are an expert research assistant.
+You are an expert AI research assistant.
 
-Provide an accurate, detailed, and well-structured answer.
+Your task is to answer the user's question accurately,
+clearly, and with well-structured explanations.
 
 Question:
-
-{question}
-"""
+{context.question}
+""".strip()

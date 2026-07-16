@@ -1,9 +1,10 @@
+from app.prompts.models.prompt_context import PromptContext
 from app.prompts.prompt_registry import PromptRegistry
 
 
 class PromptManager:
     """
-    Builds prompts using registered prompt templates.
+    Responsible for constructing prompts using registered templates.
     """
 
     @staticmethod
@@ -12,6 +13,10 @@ class PromptManager:
         question: str,
     ) -> str:
 
+        context = PromptContext(
+            question=question
+        )
+
         prompt_class = PromptRegistry.get_prompt(prompt_name)
 
-        return prompt_class.build(question)
+        return prompt_class.build(context)
