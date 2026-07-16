@@ -18,7 +18,10 @@ class ChatService:
 
         logger.info("Question received: %s", question)
 
-        prompt = PromptManager.build_research_prompt(question)
+        prompt = PromptManager.build(
+            prompt_name="research",
+            question=question,
+        )
 
         logger.info("Prompt created successfully.")
 
